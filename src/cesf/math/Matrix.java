@@ -5,7 +5,8 @@ package cesf.math;
  * <p>Classe immutable per a la representaci&oacute; i manipulaci&oacute; de matrius
  * de nombres reals. Aporta les funcions b&agravesiques de c&agravelcul sobre
  * matrius M x N.</p>
- * @author cesf
+ * @author Joan
+ * @see <a href="http://es.wikipedia.org/wiki/Matriz_%28matem%C3%A1ticas%29">Wikipedia</a>
  */
 final public class Matrix {
 	/**
@@ -23,8 +24,8 @@ final public class Matrix {
 
     /**
      * Crea matriu M x N amb zeros.
-     * @param M
-     * @param N
+     * @param M Se li pasa una int.
+     * @param N Se li pasa una int.
      */
     public Matrix(int M, int N) {
         this.M = M;
@@ -34,7 +35,8 @@ final public class Matrix {
 
     /**
      * Crea matriu a partir d'una matriu 2d d'entrada.
-     * @param data
+     * @param data Se li pasa una matriu de double's.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public Matrix(double[][] data) {
         M = data.length;
@@ -47,7 +49,8 @@ final public class Matrix {
 
     /**
      * Constructor de c&ogravepia.
-     * @param A
+     * @param A Se li pasa una Matrix.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     private Matrix(Matrix A) {
     	this(A.data); 
@@ -55,9 +58,10 @@ final public class Matrix {
 
     /**
      * Crea i retorna una matriu MxN aleat&ograveria (valors entre 0 i 1).
-     * @param M
-     * @param N
-     * @return
+     * @param M Se li pasa una  Matriu.
+     * @param N Se li pasa una Matriu.
+     * @return Retorna una Matriu.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public static Matrix random(int M, int N) {
         Matrix A = new Matrix(M, N);
@@ -69,8 +73,9 @@ final public class Matrix {
 
     /**
      * Crea i retorna una matriu NxN identitat (uns a la diagonal).
-     * @param N
-     * @return
+     * @param N Se li pasa un int.
+     * @return  Retorna una Matriu.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public static Matrix identity(int N) {
         Matrix I = new Matrix(N, N);
@@ -81,8 +86,8 @@ final public class Matrix {
 
     /**
      * Intercanviar files i i j.
-     * @param i
-     * @param j
+     * @param i Se li pasa un int.
+     * @param j Se li pasa un int.
      */
     public void swapRows(int i, int j) {
         double[] temp = data[i];
@@ -92,8 +97,8 @@ final public class Matrix {
 
     /**
      * Intercanviar columnes i i j.
-     * @param i
-     * @param j
+     * @param i Se li pasa un int.
+     * @param j Se li pasa un int.
      */
     public void swapColumns(int i, int j) {
     	for (int r = 0; r < M; r++) {
@@ -105,7 +110,8 @@ final public class Matrix {
 
     /**
      * Crea i retorna la matriu transposada de l'actual.
-     * @return
+     * @return Retorna una Matriu.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public Matrix transpose() {
         Matrix A = new Matrix(N, M);
@@ -117,8 +123,9 @@ final public class Matrix {
 
     /**
      * Retorna C = A + B.
-     * @param B
-     * @return
+     * @param B Se li pasa una Matriu.
+     * @return Retorna una Matriu.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public Matrix add(Matrix B) {
         Matrix A = this;
@@ -133,8 +140,9 @@ final public class Matrix {
 
     /**
      * Retorna C = A - B.
-     * @param B
-     * @return
+     * @param B Se li pasa una Matriu.
+     * @return Retorna una Matriu.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public Matrix substract(Matrix B) {
         Matrix A = this;
@@ -149,8 +157,9 @@ final public class Matrix {
 
     /**
      * Compara dos matrius a partir dels valors.
-     * @param B
-     * @return
+     * @param B Se li pasa una Matriu.
+     * @return Retorna un boolean.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public boolean equals(Matrix B) {
         Matrix A = this;
@@ -165,8 +174,9 @@ final public class Matrix {
 
     /**
      * Retorna C = A * B.
-     * @param B
-     * @return
+     * @param B Se li pasa una Matriu.
+     * @return Retorna una Matriu.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public Matrix multiply(Matrix B) {
         Matrix A = this;
@@ -186,8 +196,9 @@ final public class Matrix {
      * i contenir els resultats de les equacions. La matriu
      * actual ha de contenir els coeficients i tenir el
      * rang adient per ser resoluble (a m&eacute;s de ser quadrada)</p>
-     * @param rhs
-     * @return
+     * @param rhs Se li pasa una Matriu.
+     * @return Retorna una Matriu.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public Matrix solve(Matrix rhs) {
         if (M != N || rhs.M != N || rhs.N != 1)
@@ -232,7 +243,8 @@ final public class Matrix {
 
     /**
      * Retorna una representaci&oacute; en cadena de text.
-     * @return
+     * @return Retorna una Matriu.
+     * @see Matrix Creaci&oacute; de matriu.
      */
     public String toString() {
     	String res = "";

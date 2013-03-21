@@ -11,6 +11,8 @@ package cesf.math;
  * <p>Es poden calcular moltes coses amb nombres complexos
  * i accepten diverses operacions. Aquesta classe 
  * implementa les m&eacute;s destacables i necess&agraveries.</p>
+ * @author Joan
+ * @see <a href="http://es.wikipedia.org/wiki/N%C3%BAmero_complejo">Wikipedia</a>
  */
 public class Complex {
 	/**
@@ -31,8 +33,8 @@ public class Complex {
 	}
 	/**
 	 * Constructor amb par&agravemetres.
-	 * @param re
-	 * @param im
+	 * @param re Part real.
+	 * @param im Part imagin&agraveria.
 	 */
 	public Complex(double re, double im) {
 		this.re = re;
@@ -41,8 +43,8 @@ public class Complex {
 	
     /**
      * Retorna una representaci&oacute; en cadena de text.
-     * @param re
-	 * @param im
+	 * @param re Part real.
+	 * @param im Part imagin&agraveria.
      */
     public String toString() {
         if (im == 0) return re + "";
@@ -53,19 +55,19 @@ public class Complex {
 
     /**
      * Retorna el m&ogravedul del complex.
-     * @return
+     * @return Retorna un double.
      */
     public double abs()   { return Math.hypot(re, im); }
     /**
      * Retorna la fase (angle) del complex.
-     * @return
+     * @return Retorna un double.
      */
     public double phase() { return Math.atan2(im, re); }
 
     /**
      * Suma un segon complex i retorna el resultat.
-     * @param b
-     * @return
+     * @param b Se li pasa un numero complex.
+     * @return Retorna un double.
      */
     public Complex add(Complex b) {
         double real = this.re + b.re;
@@ -75,8 +77,8 @@ public class Complex {
 
     /**
      * Resta un segon complex i retorna el resultat.
-     * @param b
-     * @return
+     * @param b Se li pasa un numero complex.
+     * @return Retorna un complex.
      */
     public Complex substract(Complex b) {
         double real = this.re - b.re;
@@ -86,8 +88,8 @@ public class Complex {
 
     /**
      * Multiplica per un segon complex i retorna el resultat.
-     * @param b
-     * @return
+     * @param b Se li pasa un numero complex.
+     * @return Retorna un complex.
      */
     public Complex multiply(Complex b) {
         double real = this.re * b.re - this.im * b.im;
@@ -97,8 +99,8 @@ public class Complex {
 
     /**
      * Multiplica per un real i retorna el resultat.
-     * @param x
-     * @return
+     * @param x Se li pasa un numero double.
+     * @return Retorna un complex.
      */
     public Complex multiply(double x) {
     	double real = x * this.re;
@@ -108,8 +110,8 @@ public class Complex {
 
     /**
      * Retorna la divisi&oacute; per un segon complex.
-     * @param b
-     * @return
+     * @param b Se li pasa un numero complex.
+     * @return Retorna un complex.
      */
     public Complex divide(Complex b) {
         return this.multiply(b.reciprocal());
@@ -117,7 +119,7 @@ public class Complex {
 
     /**
      * Retorna el complex conjugat de l'actual.
-     * @return
+     * @return Retorna un complex.
      */
     public Complex conjugate() {
     	return new Complex(this.re, -this.im); 
@@ -125,7 +127,7 @@ public class Complex {
 
     /**
      * Retorna el rec&iacute;proc d'aquest complex.
-     * @return
+     * @return Retorna un complex.
      */
     public Complex reciprocal() {
         double x = this.re * this.re + this.im * this.im;
@@ -134,19 +136,19 @@ public class Complex {
 
     /**
      * Getter, recuperar re.
-     * @return
+     * @return Retorna un double.
      */
     public double getReal() { return this.re; }
     
     /**
      * Getter, recuperar imag.
-     * @return
+     * @return Retorna un double.
      */
     public double getImag() { return this.im; }
 
     /**
      * Retorna l'exponenciaci&oacute; del complex.
-     * @return
+     * @return Retorna un complex.
      */
     public Complex exp() {
     	double real = Math.exp(this.re) * Math.cos(this.im);
@@ -156,7 +158,7 @@ public class Complex {
 
     /**
      * Retorna el sinus del complex.
-     * @return
+     * @return Retorna un complex.
      */
     public Complex sin() {
     	double real = Math.sin(re) * Math.cosh(im);
@@ -166,7 +168,7 @@ public class Complex {
 
     /**
      * Retorna el cosinus del complex.
-     * @return
+     * @return Retorna un complex.
      */
     public Complex cos() {
     	double real = Math.cos(re) * Math.cosh(im);
@@ -176,7 +178,7 @@ public class Complex {
 
     /**
      * Retorna la tangent del complex.
-     * @return
+     * @return Retorna un complex.
      */
     public Complex tan() {
         return sin().divide(cos());
@@ -184,9 +186,9 @@ public class Complex {
     
     /**
      * Versi&oacute; est&agravetica de la funci&oacute; suma.
-     * @param a
-     * @param b
-     * @return
+     * @param a Se li pasa un complex "a".
+     * @param b Se li pasa un complex "b".
+     * @return Retorna un complex.
      */
     public static Complex add(Complex a, Complex b) {
         double real = a.re + b.re;
